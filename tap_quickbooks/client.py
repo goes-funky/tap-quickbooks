@@ -13,6 +13,10 @@ SANDBOX_ENDPOINT_BASE = "https://sandbox-quickbooks.api.intuit.com"
 TOKEN_REFRESH_URL = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer'
 
 
+# PAYMENT
+# Production Base URL:https://api.intuit.com
+# Sandbox Base URL:https://sandbox.api.intuit.com
+
 class QuickbooksAuthenticationError(Exception):
     pass
 
@@ -41,7 +45,7 @@ class QuickbooksClient():
         if config.get('sandbox') in ['true', 'True', True]:
             self.sandbox = True
 
-        self.user_agent = config['user_agent']
+        self.user_agent = config.get('user_agent', '/')
         self.realm_id = config['realm_id']
         self.config_path = config_path
         self.session = OAuth2Session(config['client_id'],

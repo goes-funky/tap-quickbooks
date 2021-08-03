@@ -8,7 +8,7 @@ LOGGER = singer.get_logger()
 def do_sync(client, config, state, catalog):
     selected_streams = catalog.get_selected_streams(state)
 
-    for stream in selected_streams:
+    for stream in selected_streams:  # catalog.streams:
         stream_id = stream.tap_stream_id
         stream_schema = stream.schema
         stream_object = STREAM_OBJECTS.get(stream_id)(client, config, state)
