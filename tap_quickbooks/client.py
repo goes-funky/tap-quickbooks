@@ -4,7 +4,8 @@ import requests
 import singer
 
 from requests_oauthlib import OAuth2Session
-
+import sys
+import json
 
 LOGGER = singer.get_logger()
 
@@ -66,6 +67,21 @@ class QuickbooksClient():
         # Update config at config_path
         with open(self.config_path) as file:
             config = json.load(file)
+
+        # Update refresh token secret in container:
+        if config['refresh_token'] != token['refresh_token']:
+            LOGGER.info("Credentials updated")
+            secrets = {
+                "type": "CREDENTIALS_CHANGED",
+                "secret": {
+                    "access_token": token["access_token"],
+                    "refresh_token": token["refresh_token"],
+                    "token_type": "Bearer",
+                },
+            }
+            message = json.dumps(secrets)
+            sys.stdout.write(message)
+            sys.stdout.flush()
 
         config['refresh_token'] = token['refresh_token']
 
