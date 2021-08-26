@@ -15,7 +15,6 @@ def main():
     args = singer.parse_args(required_config_keys)
 
     config = args.config
-    client = QuickbooksClient(args.config_path, config)
     catalog = args.catalog or Catalog([])
     state = args.state
 
@@ -28,7 +27,9 @@ def main():
         write_catalog(catalog)
     else:
         LOGGER.info("Starting sync mode")
+        client = QuickbooksClient(args.config_path, config)
         do_sync(client, config, state, catalog)
+
 
 if __name__ == "__main__":
     main()

@@ -71,12 +71,20 @@ class QuickbooksClient():
             # Update refresh token secret in container:
             if config['refresh_token'] != token['refresh_token']:
                 LOGGER.info("Credentials updated")
+                secrets = {
+                    "type": "CREDENTIALS_CHANGED",
+                    "secret": {
+                        "access_token": token["access_token"],
+                        "refresh_token": token["refresh_token"],
+                        "token_type": "Bearer",
+                    },
+                }
+                message = json.dumps(secrets)
+                sys.stdout.write(message)
+                sys.stdout.flush()
 
             config['refresh_token'] = token['refresh_token']
-
-            with open(self.config_path, 'w') as file:
-                json.dump(config, file, indent=2)
-
+            json.dump(config, sys.stdout, indent=2)
 
     @backoff.on_exception(backoff.constant,
                           (Quickbooks5XXException,
