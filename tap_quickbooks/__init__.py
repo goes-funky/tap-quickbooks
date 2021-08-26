@@ -31,7 +31,7 @@ def main():
         try:
             do_sync(client, config, state, catalog)
         finally:
-            if config['refresh_token'] == client.new_token['refresh_token']:
+            if config['refresh_token'] != client.new_token['refresh_token']:
                 LOGGER.info("Credentials have changed, pushing new credentials.")
                 secrets = {
                     "type": "CREDENTIALS_CHANGED",
