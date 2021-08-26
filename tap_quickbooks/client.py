@@ -84,7 +84,8 @@ class QuickbooksClient():
                 sys.stdout.flush()
 
             config['refresh_token'] = token['refresh_token']
-            json.dump(config, sys.stdout, indent=2)
+            with open(self.config_path, 'w') as file:
+                json.dump(config, file, indent=2)
 
     @backoff.on_exception(backoff.constant,
                           (Quickbooks5XXException,
