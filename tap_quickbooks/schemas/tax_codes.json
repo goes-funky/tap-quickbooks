@@ -25,6 +25,18 @@
         "string"
       ]
     },
+    "sparse": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "TaxCodeConfigType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "SyncToken": {
       "type": [
         "null",

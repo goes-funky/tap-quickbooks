@@ -69,6 +69,12 @@
         "boolean"
       ]
     },
+    "V4IDPseudonym": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "BirthDate": {
       "format": "date-time",
       "type": [

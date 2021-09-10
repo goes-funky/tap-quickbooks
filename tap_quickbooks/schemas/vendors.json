@@ -273,6 +273,12 @@
         "boolean"
       ]
     },
+    "V4IDPseudonym": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "Title": {
       "type": [
         "null",

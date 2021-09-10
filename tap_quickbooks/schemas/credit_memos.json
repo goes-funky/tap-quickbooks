@@ -162,6 +162,26 @@
                   "object"
                 ]
               },
+              "ItemAccountRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "Qty": {
                 "type": [
                   "null",
@@ -202,6 +222,12 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "FreeFormAddress": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "ApplyTaxAfterDiscount": {

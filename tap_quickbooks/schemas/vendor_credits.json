@@ -48,6 +48,19 @@
         "string"
       ]
     },
+    "Balance": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "singer.decimal"
+    },
+    "sparse": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "VendorRef": {
       "properties": {
         "value": {

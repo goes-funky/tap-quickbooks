@@ -116,6 +116,26 @@
                   "object"
                 ]
               },
+              "ItemAccountRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "Qty": {
                 "format": "singer.decimal",
                 "type": [
@@ -381,6 +401,12 @@
         "string"
       ],
       "format": "singer.decimal"
+    },
+    "FreeFormAddress": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "HomeTotalAmt": {
       "format": "singer.decimal",

@@ -266,6 +266,18 @@
         "string"
       ]
     },
+    "IsProject": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ClientEntityId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "SyncToken": {
       "type": [
         "null",
@@ -336,6 +348,12 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "V4IDPseudonym": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "GivenName": {

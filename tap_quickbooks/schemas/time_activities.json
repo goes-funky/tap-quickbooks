@@ -44,6 +44,12 @@
         "integer"
       ]
     },
+    "Seconds": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "MetaData": {
       "properties": {
         "CreateTime": {

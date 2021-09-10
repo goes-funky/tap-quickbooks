@@ -117,6 +117,12 @@
         "string"
       ]
     },
+    "FreeFormAddress": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "TotalAmt": {
       "format": "singer.decimal",
       "type": [
@@ -364,6 +370,26 @@
           "SalesItemLineDetail": {
             "properties": {
               "ItemRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "ItemAccountRef": {
                 "properties": {
                   "name": {
                     "type": [

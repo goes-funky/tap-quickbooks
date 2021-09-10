@@ -58,6 +58,12 @@
         "object"
       ]
     },
+    "TaxAgencyConfig": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "TaxTrackedOnSales": {
       "type": [
         "null",

@@ -306,6 +306,26 @@
                   }
                 }
               },
+              "ItemAccountRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "Qty": {
                 "type": [
                   "null",
@@ -513,6 +533,12 @@
         "string"
       ],
       "format": "singer.decimal"
+    },
+    "FreeFormAddress": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "DepositToAccountRef": {
       "type": [

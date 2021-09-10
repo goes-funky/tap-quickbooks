@@ -59,6 +59,13 @@
         "string"
       ]
     },
+    "Sku":
+    {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "Active": {
       "type": [
         "null",
