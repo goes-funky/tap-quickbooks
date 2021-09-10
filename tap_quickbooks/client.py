@@ -4,7 +4,8 @@ import requests
 import singer
 
 from requests_oauthlib import OAuth2Session
-
+import sys
+import json
 
 LOGGER = singer.get_logger()
 
@@ -28,7 +29,8 @@ class Quickbooks4XXException(Exception):
 
 
 class QuickbooksClient():
-    def __init__(self, config_path, config):
+
+    def __init__(self, config):
         token = {
             'refresh_token': config['refresh_token'],
             'token_type': 'Bearer',
@@ -47,7 +49,6 @@ class QuickbooksClient():
 
         self.user_agent = config.get('user_agent', '/')
         self.realm_id = config['realm_id']
-        self.config_path = config_path
         self.session = OAuth2Session(config['client_id'],
                                      token=token,
                                      auto_refresh_url=TOKEN_REFRESH_URL,
@@ -61,17 +62,8 @@ class QuickbooksClient():
             raise QuickbooksAuthenticationError(e)
 
     def _write_config(self, token):
+        self.new_token = token
         LOGGER.info("Credentials Refreshed")
-
-        # Update config at config_path
-        with open(self.config_path) as file:
-            config = json.load(file)
-
-        config['refresh_token'] = token['refresh_token']
-
-        with open(self.config_path, 'w') as file:
-            json.dump(config, file, indent=2)
-
 
     @backoff.on_exception(backoff.constant,
                           (Quickbooks5XXException,
@@ -118,7 +110,6 @@ class QuickbooksClient():
             raise Quickbooks4XXException(response.text)
 
         return response.json()
-
 
     def get(self, url, headers=None, params=None):
         return self._make_request("GET", url, headers=headers, params=params)

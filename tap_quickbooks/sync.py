@@ -1,14 +1,14 @@
 import singer
 from singer import Transformer, metadata
-
 from .streams import STREAM_OBJECTS
 
 LOGGER = singer.get_logger()
 
+
 def do_sync(client, config, state, catalog):
     selected_streams = catalog.get_selected_streams(state)
 
-    for stream in selected_streams:  # catalog.streams:
+    for stream in selected_streams:
         stream_id = stream.tap_stream_id
         stream_schema = stream.schema
         stream_object = STREAM_OBJECTS.get(stream_id)(client, config, state)
@@ -29,6 +29,8 @@ def do_sync(client, config, state, catalog):
             for rec in stream_object.sync():
                 singer.write_record(
                     stream_id,
-                    transformer.transform(rec,
-                                          stream.schema.to_dict(),
-                                          metadata.to_map(stream.metadata)))
+                    transformer.transform(
+                        rec,
+                        stream.schema.to_dict(),
+                        metadata.to_map(stream.metadata)
+                    ))

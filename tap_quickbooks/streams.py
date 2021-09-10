@@ -176,6 +176,7 @@ class Terms(Stream):
 class TimeActivities(Stream):
     stream_name = 'time_activities'
     table_name = 'TimeActivity'
+    replication_method = 'FULL_TABLE'
 
 
 class Transfers(Stream):
